@@ -4,8 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IOAIPH & NOAIPH</title>
-    <!-- Load Tailwind CSS -->
+    <!-- Configure and Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Custom Tailwind configuration to add the specific blue color
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ioai-blue': '#498FCD',
+                        // A slightly darker shade for the hover effect
+                        'ioai-blue-hover': '#3c81bb', 
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         /* Re-adding the custom font stack for a code/terminal look */
         body {
@@ -22,9 +36,9 @@
         <p class="mb-4 text-black">
             Welcome to the website of the:
             <br>
-            <span class="text-blue-600 font-semibold">International Olympiad in Artificial Intelligence - Philippines (IOAIPH)</span> and the
+            <span class="text-ioai-blue font-semibold">International Olympiad in Artificial Intelligence - Philippines (IOAIPH)</span> and the
             <br>
-            <span class="text-blue-600 font-semibold">National Olympiad in Artificial Intelligence - Philippines (NOAIPH)</span>
+            <span class="text-ioai-blue font-semibold">National Olympiad in Artificial Intelligence - Philippines (NOAIPH)</span>
         </p>
 
         <!-- Organizer Details -->
@@ -36,7 +50,7 @@
         </div>
 
         <!-- Coming Soon Message -->
-        <h1 class="text-3xl font-bold text-blue-600 mt-8 mb-6 text-center">
+        <h1 class="text-3xl font-bold text-ioai-blue mt-8 mb-6 text-center">
             Coming Soon.
         </h1>
 
@@ -46,7 +60,7 @@
             <a href="https://www.ateneo.edu/news/2025/09/27/ateneo-build-accredited-philippine-coordinator-international-olympiad-artificial"
                target="_blank"
                rel="noopener noreferrer"
-               class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded transition duration-200 text-sm shadow">
+               class="inline-block px-4 py-2 bg-ioai-blue hover:bg-ioai-blue-hover text-white font-medium rounded transition duration-200 text-sm shadow">
                 View Official Announcement
             </a>
         </div>
