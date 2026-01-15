@@ -24,13 +24,35 @@
         /* Custom font stack for a modern, clean code aesthetic */
         body {
             font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            background-color: #ffffff;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        #network-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Ensure content sits above the canvas clearly */
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
-<body class="bg-white min-h-screen flex items-center justify-center p-4 text-gray-800">
+<body class="min-h-screen flex items-center justify-center p-4 text-gray-800">
+
+    <!-- Background Animation Canvas -->
+    <canvas id="network-canvas"></canvas>
 
     <!-- Main Content Container (Simple, centered block) -->
-    <div class="max-w-2xl w-full p-8 md:p-12 text-base">
+    <div class="content-wrapper max-w-2xl w-full p-8 md:p-12 text-base">
 
         <!-- Title / Welcome Message -->
         <p class="mb-4 text-black text-center md:text-left">
@@ -57,7 +79,7 @@
         </div>
 
         <!-- Call to Action Section (Contestant Registration) -->
-        <div class="mt-8 p-6 bg-blue-50 border-2 border-ioai-blue rounded-lg text-center shadow-sm">
+        <div class="mt-8 p-6 bg-blue-50/80 border-2 border-ioai-blue rounded-lg text-center shadow-sm backdrop-blur-sm">
             <h2 class="text-xl font-bold text-black mb-2">Contestant Registration</h2>
             <p class="mb-4 text-sm text-gray-700 font-medium">Ready to represent the Philippines?</p>
             
@@ -128,5 +150,114 @@
 
     </div>
 
+    <script>
+        const canvas = document.getElementById('network-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const particleCount = 80;
+        const connectionDistance = 200;
+        
+        let mouse = {
+            x: null,
+            y: null,
+            radius: 200
+        };
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        // Define the Particle class first to avoid ReferenceError
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.4;
+                this.radius = Math.random() * 2 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                // Updated to a light blue based on the theme color
+                ctx.fillStyle = 'rgba(73, 143, 205, 0.3)';
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                // Connect to mouse
+                if (mouse.x !== null) {
+                    const mdx = particles[i].x - mouse.x;
+                    const mdy = particles[i].y - mouse.y;
+                    const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
+                    if (mDist < mouse.radius) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(73, 143, 205, ${0.4 * (1 - mDist / mouse.radius)})`;
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
+                }
+
+                // Connect nodes to each other
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        // Updated line color to light blue based on the theme color
+                        ctx.strokeStyle = `rgba(73, 143, 205, ${0.2 * (1 - distance / connectionDistance)})`;
+                        ctx.lineWidth = 0.6;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        // Add event listener for resize
+        window.addEventListener('resize', resize);
+
+        // Execute initialization and animation after window load
+        window.onload = function() {
+            resize();
+            animate();
+        };
+    </script>
 </body>
 </html>
