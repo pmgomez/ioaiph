@@ -100,6 +100,18 @@
             </div>
         </div>
 
+        <!-- Partnership Section -->
+        <div class="mt-8 border-t border-gray-300 pt-8 text-center">
+            <h2 class="text-lg font-bold text-black mb-2">Partner With Us</h2>
+            <p class="text-gray-700 max-w-lg mx-auto leading-relaxed">
+                We're looking for forward-thinking organizations to help empower the next generation of AI talent in the Philippines. Join us in supporting Team Philippines as they compete on the global stage.
+            </p>
+            <p class="mt-3 text-gray-700">
+                For sponsorship and partnership opportunities, please reach out to us at 
+                <a href="mailto:info@ioaiph.org" class="text-ioai-blue font-semibold hover:underline">info@ioaiph.org</a>.
+            </p>
+        </div>
+
         <!-- Links Section -->
         <div class="mt-8 border-t border-gray-300 py-8">
             <h2 class="text-lg font-bold text-black mb-4 text-center">Resources & Community</h2>
@@ -168,7 +180,6 @@
             mouse.y = e.clientY;
         });
 
-        // Define the Particle class first to avoid ReferenceError
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
@@ -189,7 +200,6 @@
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                // Updated to a light blue based on the theme color
                 ctx.fillStyle = 'rgba(73, 143, 205, 0.3)';
                 ctx.fill();
             }
@@ -238,7 +248,6 @@
 
                     if (distance < connectionDistance) {
                         ctx.beginPath();
-                        // Updated line color to light blue based on the theme color
                         ctx.strokeStyle = `rgba(73, 143, 205, ${0.2 * (1 - distance / connectionDistance)})`;
                         ctx.lineWidth = 0.6;
                         ctx.moveTo(particles[i].x, particles[i].y);
@@ -250,10 +259,8 @@
             requestAnimationFrame(animate);
         }
 
-        // Add event listener for resize
         window.addEventListener('resize', resize);
 
-        // Execute initialization and animation after window load
         window.onload = function() {
             resize();
             animate();
