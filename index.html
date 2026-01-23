@@ -36,6 +36,7 @@
             background-color: #ffffff;
             margin: 0;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         #network-canvas {
@@ -72,6 +73,19 @@
             <span class="text-ioai-blue font-semibold">National Olympiad in Artificial Intelligence - Philippines (NOAIPH)</span>
         </p>
 
+        <hr class="border-gray-300 mb-6">
+
+        <!-- Navigation Anchors -->
+        <nav class="flex flex-wrap justify-center md:justify-start gap-x-3 gap-y-1 text-sm font-bold text-ioai-blue mb-6">
+            <a href="#registration" class="hover:underline hover:text-ioai-blue-hover transition-colors">Contestant Registration</a>
+            <span class="text-gray-400">|</span>
+            <a href="#faq" class="hover:underline hover:text-ioai-blue-hover transition-colors">FAQs</a>
+            <span class="text-gray-400">|</span>
+            <a href="#partner" class="hover:underline hover:text-ioai-blue-hover transition-colors">Partner with Us</a>
+            <span class="text-gray-400">|</span>
+            <a href="#resources" class="hover:underline hover:text-ioai-blue-hover transition-colors">Resources & Community</a>
+        </nav>
+
         <!-- Organizer Details -->
         <div class="mt-6 pt-4 border-t border-gray-300 text-sm">
             <p class="text-gray-600">Organized by the</p>
@@ -88,7 +102,7 @@
         </div>
 
         <!-- Call to Action Section (Contestant Registration) -->
-        <div class="mt-8 p-6 bg-blue-50/80 border-2 border-ioai-blue rounded-lg text-center shadow-sm backdrop-blur-sm">
+        <div id="registration" class="mt-8 p-6 bg-blue-50/80 border-2 border-ioai-blue rounded-lg text-center shadow-sm backdrop-blur-sm scroll-mt-20">
             <h2 class="text-xl font-bold text-black mb-2">Contestant Registration</h2>
             <p class="mb-4 text-sm text-gray-700 font-medium">Ready to represent the Philippines?</p>
             
@@ -99,18 +113,23 @@
                 Register for the 2026 Olympiad
             </a>
             
-            <div class="flex items-center justify-center space-x-2 text-red-600 font-bold uppercase tracking-tight text-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none" />
-                    <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                </svg>
-                <span>Deadline: 25 January 2026</span>
+            <div class="flex flex-col items-center justify-center text-red-600 mt-1">
+                <div class="flex items-center space-x-2 font-bold uppercase tracking-tight text-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none" />
+                        <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <span>Extended to 8 Feb 2026 at 11:59 AM PHT</span>
+                </div>
+                <p class="text-xs font-medium mt-1">
+                    Priority access will be given to those who register by 25 Jan 2026 at 11:59 PM.
+                </p>
             </div>
         </div>
 
         <!-- Glowing FAQ Button -->
-        <div class="mt-8 text-center">
+        <div id="faq" class="mt-8 text-center scroll-mt-20">
             <a href="https://docs.google.com/document/d/1Wgdbogwmhz3ZdI06WD4zlw8qgCJkKPCN9HJaVC6ro6M/edit?usp=sharing"
                target="_blank"
                rel="noopener noreferrer"
@@ -120,7 +139,7 @@
         </div>
 
         <!-- Partnership Section (Updated to Stand Out) -->
-        <div class="mt-8 p-6 bg-amber-50/90 border-2 border-amber-300 rounded-lg text-center shadow-md backdrop-blur-sm">
+        <div id="partner" class="mt-8 p-6 bg-amber-50/90 border-2 border-amber-300 rounded-lg text-center shadow-md backdrop-blur-sm scroll-mt-20">
             <h2 class="text-xl font-bold text-amber-900 mb-2">🤝 Partner With Us</h2>
             <p class="text-gray-800 max-w-lg mx-auto leading-relaxed font-medium">
                 We're looking for forward-thinking organizations to help empower the next generation of AI talent in the Philippines. Join us in supporting Team Philippines as they compete on the global stage.
@@ -132,31 +151,34 @@
         </div>
 
         <!-- Links Section -->
-        <div class="mt-8 border-t border-gray-300 py-8">
+        <div id="resources" class="mt-8 border-t border-gray-300 py-8 scroll-mt-20">
             <h2 class="text-lg font-bold text-black mb-4 text-center">Resources & Community</h2>
             <ul class="space-y-4 text-center">
                 <li>
-                    <a href="https://www.ateneo.edu/opportunities/2026/01/open-call-pinoy-hs-students-compete-world-ai-olympiad"
+                    <a href="https://www.deped.gov.ph/2026/01/22/january-22-2026-advisory-no-024-s-2026-international-olympiad-in-artificial-intelligence-philippines-national-contest-2026/"
                        target="_blank"
                        rel="noopener noreferrer"
                        class="text-ioai-blue hover:underline font-semibold transition duration-150 block text-base">
-                        National Olympiad Open Call
-                    </a>
-                </li>
-                <li>
-                    <a href="https://forms.gle/U3ABYPX8g3Te9poCA"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="text-ioai-blue hover:underline font-semibold transition duration-150 block text-base">
-                        Volunteer Organizer Sign-up
+                        DepEd Advisory No. 024, s. 2026
                     </a>
                 </li>
                 <li>
                     <a href="https://www.facebook.com/ioaiph"
                        target="_blank"
                        rel="noopener noreferrer"
-                       class="text-ioai-blue hover:underline font-semibold transition duration-150 block text-base">
+                       class="text-ioai-blue hover:underline font-semibold transition duration-150 inline-flex items-center text-base">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                        </svg>
                         IOAI Philippines Facebook Page
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.ateneo.edu/opportunities/2026/01/open-call-pinoy-hs-students-compete-world-ai-olympiad"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="text-ioai-blue hover:underline font-semibold transition duration-150 block text-base">
+                        National Olympiad Open Call
                     </a>
                 </li>
                 <li>
