@@ -65,7 +65,7 @@
     <div class="content-wrapper max-w-2xl w-full p-8 md:p-12 text-base">
 
         <!-- Title / Welcome Message -->
-        <p class="mb-4 text-black text-center md:text-left">
+        <p class="mb-4 text-black text-center">
             Welcome to the website of the:
             <br>
             <span class="text-ioai-blue font-semibold">International Olympiad in Artificial Intelligence - Philippines (IOAIPH)</span> and the
@@ -73,21 +73,16 @@
             <span class="text-ioai-blue font-semibold">National Olympiad in Artificial Intelligence - Philippines (NOAIPH)</span>
         </p>
 
-        <hr class="border-gray-300 mb-6">
+        <!-- Logos Section -->
+        <div class="flex justify-center items-center gap-6 my-6">
+            <img src="https://ioaiph.org/ioaiphlogosquare.png" alt="IOAIPH Logo" class="h-24 w-auto hover:scale-105 transition-transform duration-200">
+            <a href="https://www.ateneo.edu/jgsom/build" target="_blank" rel="noopener noreferrer">
+                <img src="https://ioaiph.org/buildlogosquare.png" alt="BUILD Logo" class="h-24 w-auto hover:scale-105 transition-transform duration-200">
+            </a>
+        </div>
 
-        <!-- Navigation Anchors -->
-        <nav class="flex flex-wrap justify-center md:justify-start gap-x-3 gap-y-1 text-sm font-bold text-ioai-blue mb-6">
-            <a href="#registration" class="hover:underline hover:text-ioai-blue-hover transition-colors">Contestant Registration</a>
-            <span class="text-gray-400">|</span>
-            <a href="#faq" class="hover:underline hover:text-ioai-blue-hover transition-colors">FAQs</a>
-            <span class="text-gray-400">|</span>
-            <a href="#partner" class="hover:underline hover:text-ioai-blue-hover transition-colors">Partner with Us</a>
-            <span class="text-gray-400">|</span>
-            <a href="#resources" class="hover:underline hover:text-ioai-blue-hover transition-colors">Resources & Community</a>
-        </nav>
-
-        <!-- Organizer Details -->
-        <div class="mt-6 pt-4 border-t border-gray-300 text-sm">
+        <!-- Organized By (Moved Up) -->
+        <div class="mt-4 text-sm text-center">
             <p class="text-gray-600">Organized by the</p>
             <p class="font-medium text-black">
                 <a href="https://www.ateneo.edu" target="_blank" rel="noopener noreferrer" class="text-ioai-blue hover:underline">
@@ -99,6 +94,31 @@
             </p>
             <p class="text-gray-600">John Gokongwei School of Management</p>
             <p class="text-gray-600">Ateneo de Manila University</p>
+        </div>
+
+        <hr class="border-gray-300 my-6">
+
+        <!-- Navigation Anchors (Centered) -->
+        <nav class="flex flex-wrap justify-center gap-x-3 gap-y-1 text-sm font-bold text-ioai-blue mb-6">
+            <a href="#registration" class="hover:underline hover:text-ioai-blue-hover transition-colors">Contestant Registration</a>
+            <span class="text-gray-400">|</span>
+            <a href="#faq" class="hover:underline hover:text-ioai-blue-hover transition-colors">FAQs</a>
+            <span class="text-gray-400">|</span>
+            <a href="#partner" class="hover:underline hover:text-ioai-blue-hover transition-colors">Partner with Us</a>
+            <span class="text-gray-400">|</span>
+            <a href="#resources" class="hover:underline hover:text-ioai-blue-hover transition-colors">Resources & Community</a>
+        </nav>
+
+        <hr class="border-gray-300 mt-2 mb-6">
+
+        <!-- Community Partners -->
+        <div class="text-center mb-2">
+            <p class="text-gray-600 text-sm mb-4">Community Partners</p>
+            <div class="flex justify-center items-center">
+                <a href="https://www.aap.ph/" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-105 duration-200">
+                    <img src="https://ioaiph.org/aaplogo.png" alt="Automobile Association Philippines (AAP)" class="h-16 w-auto">
+                </a>
+            </div>
         </div>
 
         <!-- Call to Action Section (Contestant Registration) -->
